@@ -1,6 +1,6 @@
 import wollok.vm.*
 object rolando {
-    var property artefactosObtenidos  = {}
+    var property artefactosObtenidos  = []
     const capacidad = 2
 
     method encuentra(artefacto) {
