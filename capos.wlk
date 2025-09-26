@@ -3,7 +3,9 @@ import wollok.vm.*
 object rolando {
   var property artefactosObtenidos = []
   var property ordenDeEncuentro = []
-  const capacidad = 2
+  var capacidad          = 3
+  var poderBase          = 5 
+  var batallasPeleadas   = 0
   const hogar = castilloDePiedra
   
   method encuentra(artefacto) {
@@ -21,9 +23,20 @@ object rolando {
   method llegaCastillo() {
     hogar.guardarObjetos(artefactosObtenidos)
   }
+
+  method poderDePelea() {
+    
+    
+  }
+
+  method pelearBatalla() {
+
+    
+  }
 }
 
 object espadaDelDestino {
+
   
 }
 
