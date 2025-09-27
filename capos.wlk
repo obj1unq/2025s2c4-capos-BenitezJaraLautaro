@@ -29,9 +29,9 @@ object rolando {
   }
 
   method poderDePelea() {
-    var  poderDePelea  = poderBase
-    artefactosObtenidos.forEach( {artefacto => poderDePelea = poderDePelea + artefacto.poderQueAportaAlUsuario(self)})
-    return poderDePelea
+    var  poderDePelea_  = poderBase
+    artefactosObtenidos.forEach( {artefacto => poderDePelea_ = poderDePelea_ + artefacto.poderQueAportaAlUsuario(self)})
+    return poderDePelea_
   }
 
   method pelearBatalla() {
