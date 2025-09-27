@@ -3,8 +3,8 @@ import wollok.vm.*
 object rolando {
   var property artefactosObtenidos = []
   var property ordenDeEncuentro    = []
-  var capacidad       = 3
-  var poderBase       = 5
+  var capacidad          = 3
+  var property poderBase = 5
   var property poderDePelea        = poderBase
   var property vecesQueUsoEspada   = 0
   var property vecesQueUsoLibro    = 0
@@ -34,22 +34,30 @@ object rolando {
   }
 
   method pelearBatalla() {
-    batallasPeleadas = batallasPeleadas + 1
 
+    poderDePelea = poderDePelea + 1
 
-    
   }
 }
 
 object espadaDelDestino {
     method poderQueAportaAlUsuario(portador) {
+      if (portador.vecesQueUsoEspada() == 0) {
+        return portador.poderBase()
+      } else {
+        return portador.poderBase() / 2 
+        }
       
       
     }
 
-
-  
+    method validarUso(usuario) {
+      if()
+      
+    }
 }
+
+
 
 object libroDeEchizos {
     method poderQueAportaAlUsuario(portador) {
