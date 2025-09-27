@@ -6,7 +6,6 @@ object rolando {
   var capacidad          = 3
   var property poderBase = 5
 
-  var property useLaEspada   = false
   var property vecesQueUsoLibro    = 0
   var property vecesQueUsoCollar   = 0
   var property vecesQueUsoArmadura = 0
@@ -40,9 +39,6 @@ object rolando {
 
   }
 
-  method usoLaEspada() {
-    useLaEspada = true 
-  }
 
   method aumentarUsoCollar() {
     vecesQueUsoCollar = vecesQueUsoCollar + 1
@@ -53,8 +49,9 @@ object rolando {
 
 
 object espadaDelDestino {
+    var fueUsada = false 
     method poderQueAportaAlUsuario(portador) {
-      if (!portador.useLaEspada()) {
+      if (!fueUsada) {
         return portador.poderBase()
       } else {
         return portador.poderBase() / 2 
@@ -64,7 +61,7 @@ object espadaDelDestino {
     }
 
     method usarArtefacto(portador) {
-      portador.usoLaEspada()
+      fueUsada = true 
       
     }
 }
@@ -72,9 +69,31 @@ object espadaDelDestino {
 
 
 object libroDeEchizos {
+    var property echizosAlmacenados = [] 
     method poderQueAportaAlUsuario(portador) {
+      return echizosAlmacenados.get(0).poderDePelea()
       
     }
+
+    method agregarEchizo(echizo) {
+      echizosAlmacenados.add(echizo)
+    }
+  
+}
+
+object bendicion {
+  method poderDePelea() {
+    return 4
+    
+  }
+  
+}
+
+object invisibilidad {
+  
+}
+
+object invocacion {
   
 }
 
