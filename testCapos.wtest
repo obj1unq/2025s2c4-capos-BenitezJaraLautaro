@@ -3,16 +3,18 @@ import capos.*
 describe "rolandoPelea" {
     method initialize() {
       rolando.encuentra(espadaDelDestino)
+      rolando.encuentra(armaduraDeAceroValyrio)
+      rolando.encuentra(collarDivino)
       
     }
-  test "rolando poder de pelea debe ser 10" {
-    assert.equals(10, rolando.poderDePelea())
+  test "rolando poder de pelea debe ser 19" {
+    assert.equals(19, rolando.poderDePelea())
     
   }
 
-  test "pelea" {
+  test "tras pelear una vez el poder de pelea de rolando es 18" {
     rolando.pelearBatalla()
-    assert.equals(9, rolando.poderDePelea())
+    assert.equals(18, rolando.poderDePelea())
     
   }
 }

@@ -43,7 +43,14 @@ object rolando {
   method usoLaEspada() {
     useLaEspada = true 
   }
+
+  method aumentarUsoCollar() {
+    vecesQueUsoCollar = vecesQueUsoCollar + 1
+    
+  }
 }
+
+
 
 object espadaDelDestino {
     method poderQueAportaAlUsuario(portador) {
@@ -82,7 +89,7 @@ object collarDivino {
     }
 
     method usarArtefacto(portador) {
-      portador.vecesQueUsoCollar() + 1
+      portador.aumentarUsoCollar() 
       
     }
   
@@ -95,8 +102,7 @@ object armaduraDeAceroValyrio {
     }
 
     method usarArtefacto(portador) {
-      self.error("acero valyrio no se gasta con las batallas")
-      
+      null
     }
   
 }
