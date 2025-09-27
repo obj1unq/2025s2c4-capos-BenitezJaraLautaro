@@ -2,9 +2,11 @@ import capos.*
 
 describe "rolandoPelea" {
     method initialize() {
+      rolando.encuentra(espadaDelDestino)
       
     }
-  test "description" {
+  test "rolando poder de pelea debe ser 10" {
+    assert.equals(10, rolando.poderDePelea())
     
   }
 }
