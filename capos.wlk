@@ -68,6 +68,11 @@ object libroDeEchizos {
 
 object collarDivino {
     method poderQueAportaAlUsuario(portador) {
+      if (portador.poderBase() > 6 ) {
+        return 3 + portador.vecesQueUsoCollar()
+      } else {
+        return 3
+      }
       
     }
   
@@ -75,6 +80,7 @@ object collarDivino {
 
 object armaduraDeAceroValyrio {
     method poderQueAportaAlUsuario(portador) {
+      return 6
       
     }
   
