@@ -5,8 +5,8 @@ object rolando {
   var property ordenDeEncuentro    = []
   var capacidad          = 3
   var property poderBase = 5
-  var property poderDePelea        = poderBase
-  var property vecesQueUsoEspada   = 0
+
+  var property useLaEspada   = false
   var property vecesQueUsoLibro    = 0
   var property vecesQueUsoCollar   = 0
   var property vecesQueUsoArmadura = 0
@@ -29,20 +29,25 @@ object rolando {
   }
 
   method poderDePelea() {
+    var  poderDePelea  = poderBase
     artefactosObtenidos.forEach( {artefacto => poderDePelea = poderDePelea + artefacto.poderQueAportaAlUsuario(self)})
     return poderDePelea
   }
 
   method pelearBatalla() {
+    artefactosObtenidos.forEach({ artefacto => artefacto.usarArtefacto(self) })
+    poderBase = poderBase + 1
 
-    poderDePelea = poderDePelea + 1
+  }
 
+  method usoLaEspada() {
+    useLaEspada = true 
   }
 }
 
 object espadaDelDestino {
     method poderQueAportaAlUsuario(portador) {
-      if (portador.vecesQueUsoEspada() == 0) {
+      if (!portador.useLaEspada()) {
         return portador.poderBase()
       } else {
         return portador.poderBase() / 2 
@@ -51,8 +56,8 @@ object espadaDelDestino {
       
     }
 
-    method validarUso(usuario) {
-      if()
+    method usarArtefacto(portador) {
+      portador.usoLaEspada()
       
     }
 }
@@ -75,12 +80,22 @@ object collarDivino {
       }
       
     }
+
+    method usarArtefacto(portador) {
+      portador.vecesQueUsoCollar() + 1
+      
+    }
   
 }
 
 object armaduraDeAceroValyrio {
     method poderQueAportaAlUsuario(portador) {
       return 6
+      
+    }
+
+    method usarArtefacto(portador) {
+      self.error("acero valyrio no se gasta con las batallas")
       
     }
   

@@ -9,4 +9,11 @@ describe "rolandoPelea" {
     assert.equals(10, rolando.poderDePelea())
     
   }
+
+  test "pelea" {
+    rolando.pelearBatalla()
+    assert.equals(9, rolando.poderDePelea())
+    
+  }
 }
+
