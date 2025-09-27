@@ -7,7 +7,6 @@ object rolando {
   var property poderBase = 5
 
   var property vecesQueUsoLibro    = 0
-  var property vecesQueUsoCollar   = 0
   var property vecesQueUsoArmadura = 0
   const hogar = castilloDePiedra
   
@@ -39,9 +38,7 @@ object rolando {
 
   }
 
-
-  method aumentarUsoCollar() {
-    vecesQueUsoCollar = vecesQueUsoCollar + 1
+  method poderPeleaArtefactoMasPoderosoEnMorada() {
     
   }
 }
@@ -71,18 +68,22 @@ object espadaDelDestino {
 object libroDeEchizos {
     var property echizosAlmacenados = [] 
     method poderQueAportaAlUsuario(portador) {
-      return echizosAlmacenados.get(0).poderDePelea()
+      return echizosAlmacenados.get(0).poderDePelea(portador)
       
     }
 
     method agregarEchizo(echizo) {
       echizosAlmacenados.add(echizo)
     }
+
+    method usarArtefacto(portador) {
+      
+    }
   
 }
 
 object bendicion {
-  method poderDePelea() {
+  method poderDePelea(portador) {
     return 4
     
   }
@@ -90,17 +91,26 @@ object bendicion {
 }
 
 object invisibilidad {
+  method poderDePelea(portador) {
+    return portador.poderDePelea()
+
+  }
   
 }
 
 object invocacion {
+  method poderDePelea(portador) {
+    return portador.poderPeleaArtefactoMasPoderosoEnMorada()
+    
+  }
   
 }
 
 object collarDivino {
+    var property vecesUsado = 0
     method poderQueAportaAlUsuario(portador) {
-      if (portador.poderBase() > 6 ) {
-        return 3 + portador.vecesQueUsoCollar()
+      if (vecesUsado > 6 ) {
+        return 3 + vecesUsado
       } else {
         return 3
       }
@@ -108,7 +118,7 @@ object collarDivino {
     }
 
     method usarArtefacto(portador) {
-      portador.aumentarUsoCollar() 
+      vecesUsado = vecesUsado + 1 
       
     }
   
