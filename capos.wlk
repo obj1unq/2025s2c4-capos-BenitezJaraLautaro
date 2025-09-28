@@ -39,6 +39,7 @@ object rolando {
   }
 
   method poderPeleaArtefactoMasPoderosoEnMorada() {
+    return hogar.poderPelaArtefactoMasPoderoso(self)
     
   }
 }
@@ -141,5 +142,25 @@ object castilloDePiedra {
   
   method guardarObjetos(objetos) {
     almacen.addAll(objetos)
+  }
+
+  method poderPelaArtefactoMasPoderoso(propietario) {
+    var artefactosPoderoso = 0
+    almacen.forEach({ artefacto => artefactosPoderoso = self.mayorPoderAportadoEntre_A_(artefactosPoderoso, artefacto, propietario) })
+    return artefactosPoderoso
+
+    
+  }
+
+  method mayorPoderAportadoEntre_A_(artefacto, artefacto_, propietario) {
+    return artefacto.max(artefacto_.poderQueAportaAlUsuario(propietario))
+    
+  }
+
+  method validarArtefactosDisponibles() {
+    if (almacen.isEmpty()) {
+      self.error("no hay artefactos guardados en el castillo")
+    }
+    
   }
 }
