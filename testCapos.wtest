@@ -17,5 +17,18 @@ describe "rolandoPelea" {
     assert.equals(18, rolando.poderDePelea())
     
   }
+
+}
+
+describe "libro de echizos" {
+  method initialize() {
+    castilloDePiedra.almacen([espadaDelDestino, armaduraDeAceroValyrio, collarDivino])
+    rolando.encuentra(libroDeEchizos)
+    libroDeEchizos.echizosAlmacenados([bendicion, invisibilidad, invocacion])
+  }
+
+  test "description" {
+    
+  }
 }
 

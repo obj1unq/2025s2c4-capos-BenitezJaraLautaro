@@ -69,7 +69,10 @@ object espadaDelDestino {
 object libroDeEchizos {
     var property echizosAlmacenados = [] 
     method poderQueAportaAlUsuario(portador) {
-      return echizosAlmacenados.get(0).poderDePelea(portador)
+      if (!echizosAlmacenados.isEmpty()) {
+        return echizosAlmacenados.get(0).poderDePelea(portador)
+      }
+      return 0
       
     }
 
@@ -78,6 +81,9 @@ object libroDeEchizos {
     }
 
     method usarArtefacto(portador) {
+      if (!echizosAlmacenados.isEmpty()) {
+        echizosAlmacenados.remove(echizosAlmacenados.get(0))
+      }
       
     }
   
