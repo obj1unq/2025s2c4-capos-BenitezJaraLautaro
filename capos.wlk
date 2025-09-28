@@ -3,7 +3,10 @@ import wollok.vm.*
 object rolando {
   var property artefactosObtenidos = []
   var property ordenDeEncuentro    = []
-  var capacidad          = 3
+  var property enemigos = [catarina, archibaldo, astra]
+  var property enemigosQuePuedeVencer = []
+  var property moradasConquistables  = []  
+  var property capacidad = 3
   var property poderBase = 5
   const hogar = castilloDePiedra
   
@@ -39,6 +42,26 @@ object rolando {
     return hogar.poderPelaArtefactoMasPoderoso(self)
     
   }
+
+  method enemigosQuePuedeVencer() {
+    enemigos.forEach({ enemigo => self.agregarEnemigoSiPuedeVencer(enemigo) })
+    return enemigosQuePuedeVencer
+
+  }
+
+  method agregarEnemigoSiPuedeVencer(enemigo) {
+    if (self.poderDePelea() > enemigo.poderDePelea()) {
+      enemigosQuePuedeVencer.add(enemigo)
+    }
+    
+  }
+
+  method moradasConquistables() {
+    enemigosQuePuedeVencer.forEach({ enemigo => moradasConquistables.add(enemigo.recidencia()) })
+    return moradasConquistables
+    
+  }
+
 }
 
 
@@ -170,16 +193,19 @@ object castilloDePiedra {
 
 object catarina {
   var property poderDePelea = 28 
+  var property recidencia   = fortalezaDeAcero
   
 }
 
 object archibaldo {
   var property poderDePelea = 16 
+  var property recidencia   = palacioDeMarmol
   
 }
 
 object astra {
   var property poderDePelea = 14 
+  var property recidencia   = torreDeMarfil
   
 }
 
