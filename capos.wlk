@@ -145,9 +145,9 @@ object castilloDePiedra {
   }
 
   method poderPelaArtefactoMasPoderoso(propietario) {
-    var artefactosPoderoso = 0
-    almacen.forEach({ artefacto => artefactosPoderoso = self.mayorPoderAportadoEntre_A_(artefactosPoderoso, artefacto, propietario) })
-    return artefactosPoderoso
+    var mayorPoderAportado = 0
+    almacen.forEach({ artefacto => mayorPoderAportado = self.mayorPoderAportadoEntre_A_(mayorPoderAportado, artefacto, propietario) })
+    return mayorPoderAportado
 
     
   }
