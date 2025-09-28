@@ -5,9 +5,6 @@ object rolando {
   var property ordenDeEncuentro    = []
   var capacidad          = 3
   var property poderBase = 5
-
-  var property vecesQueUsoLibro    = 0
-  var property vecesQueUsoArmadura = 0
   const hogar = castilloDePiedra
   
   method encuentra(artefacto) {
@@ -169,4 +166,32 @@ object castilloDePiedra {
     }
     
   }
+}
+
+object catarina {
+  var property poderDePelea = 28 
+  
+}
+
+object archibaldo {
+  var property poderDePelea = 16 
+  
+}
+
+object astra {
+  var property poderDePelea = 14 
+  
+}
+
+
+object fortalezaDeAcero {
+  
+}
+
+object palacioDeMarmol {
+  
+}
+
+object torreDeMarfil {
+  
 }
