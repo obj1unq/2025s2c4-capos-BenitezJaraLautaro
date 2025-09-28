@@ -1,1 +1,56 @@
-r
+import capos.*
+
+describe "rolandoPelea" {
+    method initialize() {
+      rolando.encuentra(espadaDelDestino)
+      rolando.encuentra(armaduraDeAceroValyrio)
+      rolando.encuentra(collarDivino)
+      
+    }
+  test "rolando poder de pelea debe ser 19" {
+    assert.equals(19, rolando.poderDePelea())
+    
+  }
+
+  test "tras pelear una vez el poder de pelea de rolando es 18" {
+    rolando.pelearBatalla()
+    assert.equals(18, rolando.poderDePelea())
+    
+  }
+
+}
+
+describe "libro de echizos" {
+  method initialize() {
+    castilloDePiedra.almacen([espadaDelDestino, armaduraDeAceroValyrio, collarDivino])
+    rolando.encuentra(libroDeEchizos)
+    libroDeEchizos.echizosAlmacenados([bendicion, invisibilidad, invocacion])
+  }
+
+  test "Antes de la primera batalla, el libro de hechizos aporta 4 de la bendición." {
+    assert.equals(4, libroDeEchizos.poderQueAportaAlUsuario(rolando))
+    
+  }
+
+  test "Luego de la primera batalla el libro de hechizos aporta 6 por la invisibilidad." {
+    rolando.pelearBatalla()
+    assert.equals(6, libroDeEchizos.poderQueAportaAlUsuario(rolando))
+    
+  }
+
+  test "Luego de la segunda batalla, el libro aporta 7, ya que la invocación otorga los 7 puntos de la espada." {
+    rolando.pelearBatalla()
+    rolando.pelearBatalla()
+    assert.equals(7, libroDeEchizos.poderQueAportaAlUsuario(rolando))
+    
+  }
+
+  test "Luego de la tercera batalla, ya no quedan más hechizos, por lo que el aporte del libro es 0" {
+    rolando.pelearBatalla()
+    rolando.pelearBatalla()
+    rolando.pelearBatalla()
+    assert.equals(0, libroDeEchizos.poderQueAportaAlUsuario(rolando))
+    
+  }
+}
+
