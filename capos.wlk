@@ -99,7 +99,7 @@ object bendicion {
 
 object invisibilidad {
   method poderDePelea(portador) {
-    return portador.poderDePelea()
+    return portador.poderBase()
 
   }
   

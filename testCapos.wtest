@@ -27,7 +27,29 @@ describe "libro de echizos" {
     libroDeEchizos.echizosAlmacenados([bendicion, invisibilidad, invocacion])
   }
 
-  test "description" {
+  test "Antes de la primera batalla, el libro de hechizos aporta 4 de la bendición." {
+    assert.equals(4, libroDeEchizos.poderQueAportaAlUsuario(rolando))
+    
+  }
+
+  test "Luego de la primera batalla el libro de hechizos aporta 6 por la invisibilidad." {
+    rolando.pelearBatalla()
+    assert.equals(6, libroDeEchizos.poderQueAportaAlUsuario(rolando))
+    
+  }
+
+  test "Luego de la segunda batalla, el libro aporta 7, ya que la invocación otorga los 7 puntos de la espada." {
+    rolando.pelearBatalla()
+    rolando.pelearBatalla()
+    assert.equals(7, libroDeEchizos.poderQueAportaAlUsuario(rolando))
+    
+  }
+
+  test "Luego de la tercera batalla, ya no quedan más hechizos, por lo que el aporte del libro es 0" {
+    rolando.pelearBatalla()
+    rolando.pelearBatalla()
+    rolando.pelearBatalla()
+    assert.equals(0, libroDeEchizos.poderQueAportaAlUsuario(rolando))
     
   }
 }
